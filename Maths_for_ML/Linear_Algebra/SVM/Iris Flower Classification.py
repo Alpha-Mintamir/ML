@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score
 
 
 iris = datasets.load_iris()
@@ -25,6 +26,11 @@ X_test_scaled = scaler.transform(X_test)
 
 svm_model = SVC(kernel='linear', random_state=42)  
 svm_model.fit(X_train_scaled, y_train)  
+
+
+y_pred = svm_model.predict(X_test_scaled)  
+accuracy = accuracy_score(y_test, y_pred) 
+print(f"Accuracy of SVM on test set: {accuracy:.2f}")
 
 
 
