@@ -7,3 +7,6 @@ iris_df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
 iris_df['species'] = iris.target
 
 print(iris_df.head())
+
+X = iris_df.drop('species', axis=1)  
+y = iris_df['species']  
