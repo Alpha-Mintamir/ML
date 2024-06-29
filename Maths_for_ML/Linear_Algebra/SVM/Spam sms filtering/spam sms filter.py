@@ -29,3 +29,7 @@ x_test = vector.fit(x_test)
 classifier = SVC(kernel='linear', gamma='scale')
 classifier.fit(x_train, y_train)
 
+# Make predictions on the test set
+y_pred = classifier.predict(x_test)
+
+
