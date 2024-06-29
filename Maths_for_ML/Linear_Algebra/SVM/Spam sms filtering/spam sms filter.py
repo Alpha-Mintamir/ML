@@ -3,6 +3,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.svm import SVC
+from sklearn.metrics import classification_report, accuracy_score
 
 
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/00228/smsspamcollection.zip"
@@ -31,5 +32,17 @@ classifier.fit(x_train, y_train)
 
 # Make predictions on the test set
 y_pred = classifier.predict(x_test)
+
+#Evaluation
+
+accuracy = accuracy_score(y_test, y_pred)
+
+print(f"Accuracy score:{accuracy*100:.2f}%")
+
+#Classification Report 
+print(classification_report(y_test, y_pred, target_names=['ham', 'spam']))
+
+
+
 
 
