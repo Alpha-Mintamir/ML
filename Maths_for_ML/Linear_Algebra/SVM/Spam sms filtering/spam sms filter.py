@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.svm import SVC
 
 
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/00228/smsspamcollection.zip"
@@ -22,3 +23,9 @@ vector = CountVectorizer()
 
 x_train = vector.fit_transform(x_train)
 x_test = vector.fit(x_test)
+
+#time to train the data
+
+classifier = SVC(kernel='linear', gamma='scale')
+classifier.fit(x_train, y_train)
+
