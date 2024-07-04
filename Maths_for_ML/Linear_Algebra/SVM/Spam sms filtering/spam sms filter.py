@@ -6,8 +6,8 @@ from sklearn.svm import SVC
 from sklearn.metrics import classification_report, accuracy_score
 
 
-url = "https://archive.ics.uci.edu/ml/machine-learning-databases/00228/smsspamcollection.zip"
-df = pd.read_csv(url, sep='/t', names=['label', 'message'], compression='zip')
+
+df = pd.read_csv('SMSSpamCollection', sep='\t', names=['label', 'message'])
 
 #encoding the labels
 label_encoder = LabelEncoder()
@@ -23,7 +23,7 @@ x_train, x_test, y_train, y_test = train_test_split(df['message'], df['label'], 
 vector = CountVectorizer()
 
 x_train = vector.fit_transform(x_train)
-x_test = vector.fit(x_test)
+x_test = vector.transform(x_test)
 
 #time to train the data
 
