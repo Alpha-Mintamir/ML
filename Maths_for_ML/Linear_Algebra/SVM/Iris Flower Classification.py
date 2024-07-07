@@ -12,6 +12,8 @@ iris_df['species'] = iris.target
 
 print(iris_df.head())
 
+#print
+
 X = iris_df.drop('species', axis=1)  
 y = iris_df['species']  
 
