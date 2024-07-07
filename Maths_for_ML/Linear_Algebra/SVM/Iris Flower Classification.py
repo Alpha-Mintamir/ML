@@ -32,6 +32,8 @@ svm_model.fit(X_train_scaled, y_train)
 
 y_pred = svm_model.predict(X_test_scaled)  
 accuracy = accuracy_score(y_test, y_pred) 
+
+#print
 print(f"Accuracy of SVM on test set: {accuracy:.2f}")
 
 
